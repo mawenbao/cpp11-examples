@@ -1,12 +1,12 @@
 GCC := g++
-FLAGS := -std=c++11 -Wall -Werror
+CFLAGS := -std=c++11 -pedantic -Wall -Wextra -Werror
 SOURCE := $(wildcard *.cpp)
 OBJECTS := $(SOURCE:%.cpp=%.o)
 
 all: $(OBJECTS)
 
 $(OBJECTS): %.o: %.cpp
-	$(GCC) $(FLAGS) -o $@ $<
+	$(GCC) $(CFLAGS) -o $@ $<
 
 clean:
 	rm -f $(OBJECTS)
