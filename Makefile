@@ -1,12 +1,12 @@
 GCC := g++
-CFLAGS := -std=c++11 -pedantic -Wall -Wextra -Werror
+CFLAGS := -g -std=c++11 -pedantic -Wall -Wextra -Werror
 SOURCE := $(wildcard *.cpp)
 OBJECTS := $(SOURCE:%.cpp=%.o)
 
 all: help
 
 help:
-	@echo "C++11 sample code"
+	@echo "C++11 examples"
 	@echo "    make build - compile cpp source files."
 	@echo "    make run   - compile(if neccessary) and run."
 	@echo "    make clean - remove compiled object files."
