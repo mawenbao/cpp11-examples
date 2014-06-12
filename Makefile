@@ -16,6 +16,7 @@ run: build
 	@for obj in $(OBJECTS); do\
 		echo "[RUN] ./$${obj}";\
 		sh -c "./$${obj}";\
+		echo;\
 	done;\
 
 build: $(OBJECTS)
