@@ -1,7 +1,7 @@
-GCC := g++
-CFLAGS := -g -std=c++11 -pedantic -Wall -Wextra -Werror
-SOURCE := $(wildcard *.cpp)
-OBJECTS := $(SOURCE:%.cpp=%.o)
+CXX := clang++
+CXXFLAGS := -std=c++11 -stdlib=libc++ -g -pedantic -Wall -Wextra -Werror
+SOURCES := ${wildcard *.cpp}
+OBJECTS := ${SOURCES:%.cpp=%.o}
 
 all: help
 
@@ -13,20 +13,20 @@ help:
 	@echo "    make help  - show this message and exit."
 
 run: build
-	@for obj in $(OBJECTS); do\
+	@for obj in ${OBJECTS}; do\
 		echo "[RUN] ./$${obj}";\
 		sh -c "./$${obj}";\
 		echo;\
 	done;\
 
-build: $(OBJECTS)
+build: ${OBJECTS}
 
-$(OBJECTS): %.o: %.cpp
+${OBJECTS}: %.o: %.cpp
 	@echo -n "[BUILD] "
-	$(GCC) $(CFLAGS) -o $@ $<
+	${CXX} ${CXXFLAGS} -o $@ $<
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f ${OBJECTS}
 
 .PHONY:
 	all help run build clean
