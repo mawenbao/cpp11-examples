@@ -1,5 +1,5 @@
 CXX := clang++
-CXXFLAGS := -std=c++11 -stdlib=libc++ -g -pedantic -Wall -Wextra -Werror
+CXXFLAGS := -std=c++11 -stdlib=libc++ -g -pedantic -Wall -Wextra -Werror -pthread
 SOURCES := ${wildcard *.cpp}
 OBJECTS := ${SOURCES:%.cpp=%.o}
 
@@ -23,7 +23,7 @@ build: ${OBJECTS}
 
 ${OBJECTS}: %.o: %.cpp
 	@echo -n "[BUILD] "
-	${CXX} ${CXXFLAGS} -o $@ $<
+	${CXX} ${CXXFLAGS} ${LDFLAGS} -o $@ $<
 
 clean:
 	rm -f ${OBJECTS}

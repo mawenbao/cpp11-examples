@@ -6,7 +6,7 @@
 
 * GNU/Linux OS
 * GNU Make
-* GCC-4.8+
+* Clang3.4+ or GCC-4.9+
 
 ## 编译
 
